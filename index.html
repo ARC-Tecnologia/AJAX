@@ -18,10 +18,15 @@
         <section>
             <h1>Github</h1>
             <div id="main"></div>
-            <input type="text" placeholder="nome do usuário" id="username">
+            <input type="text" placeholder="Digite seu username no GITHUB" id="username">
         </section>
     </div>
     <script src="./js/script.js"></script>
     <script src="./js/posts.js"></script>
+    <script>
+        const input = document.getElementById("username");
+        input.style.width = `${input.placeholder.length * 1.1}ch`;
+      </script>
+      
 </body>
 </html>

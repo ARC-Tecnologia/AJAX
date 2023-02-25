@@ -53,5 +53,32 @@
     <div id="mensagem"> </div>
 </div>
 <script src="./js/form.js"></script>
+<script>// Seleciona o campo CEP
+    const cepInput = document.getElementById("cep");
+    
+    // Adiciona um listener para o evento "blur" (quando o campo perde o foco).
+    cepInput.addEventListener("blur", () => {
+      // Obtém o valor do CEP.
+      const cep = cepInput.value.replace(/\D/g, "");
+    
+      // Se o CEP não tiver 8 dígitos, mostra uma mensagem de erro.
+      if (cep.length !== 8) {
+        alert("CEP inválido");
+        return;
+      }
+    
+      // Faz a requisição para a API ViaCEP.
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(response => response.json())
+        .then(data => {
+          // Preenche os campos do endereço com os dados obtidos.
+          document.getElementById("rua").value = data.logradouro;
+          document.getElementById("bairro").value = data.bairro;
+          document.getElementById("cidade").value = data.localidade;
+          document.getElementById("uf").value = data.uf;
+        })
+        .catch(error => console.error(error));
+    });
+    </script>
 </body>
 </html>

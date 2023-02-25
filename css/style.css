@@ -23,6 +23,9 @@ body {
     flex-wrap: wrap;
     font-size: 1.5rem;
     justify-content: start;
+    text-align: justify;
+    border: 1px solid black;
+    padding: 1px;
 }
 
 h1 {
@@ -48,6 +51,7 @@ input[type="text"] {
     border-radius: 5px;
     font-size: 1.5rem;
     padding: 1rem;
+    
 }
 
 .button {
